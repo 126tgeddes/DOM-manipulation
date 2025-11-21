@@ -54,3 +54,36 @@ decoderInput.addEventListener("input", () => {
     decodedOutput.textContent = value;
   }
 });
+
+
+// Task 5 — Class Switch Mystery
+const list = document.getElementById("mysteryList");
+const items = list.querySelectorAll("li");
+
+items.forEach((li, index) => {
+  li.addEventListener("click", () => {
+    
+    li.className = "highlight1";
+
+    
+    let pattern = ["highlight-l", "highlightI"];
+    let pIndex = 0;
+
+    items.forEach(other => {
+      if (other !== li) {
+        other.className = pattern[pIndex];
+        pIndex = (pIndex + 1) % pattern.length;
+      }
+    });
+  });
+});
+
+
+// Task 6 — Timer That Fixes Header
+const glitchTitle = document.getElementById("glitchTitle");
+
+setTimeout(() => {
+  glitchTitle.textContent = "DOM Restored!";
+  glitchTitle.style.color = "teal";  
+  glitchTitle.style.fontSize = "40px";
+}, 3000);
